@@ -1,14 +1,11 @@
 const express = require('express') 
-
 const router = express.Router(); 
+const signUpRoute = require('./routes/signUpRoute')
 
-
-router.post('/signup', (req, res) => {
-    res.send('sign up page')
-});
+router.use('/signup', signUpRoute);
 
 router.post('/login', (req, res) => {
-res.send('this is log in endpoint')
+res.send('this is log in endpoint');
 });
 
 
