@@ -4,8 +4,8 @@ const user = require('../models/signUpModel')
 
 router.post('/', async (req, res) => {
     console.log(req.body);
-const { firstName, lastName, userName, password } = req.body;
-const newUser = new user({ firstName, lastName, userName, password });
+const { firstName, lastName, email, password } = req.body;
+const newUser = new user({ firstName, lastName, email, password });
 await newUser.save();
 res.status(201).send('Successfully Created User Account')
     

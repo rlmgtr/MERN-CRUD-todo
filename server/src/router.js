@@ -1,12 +1,11 @@
 const express = require('express') 
 const router = express.Router(); 
-const signUpRoute = require('./routes/signUpRoute')
+const signUpRoute = require('./routes/signUpRoute');
+const loginRoute = require('./routes/loginRoute');
 
 router.use('/signup', signUpRoute);
 
-router.post('/login', (req, res) => {
-res.send('this is log in endpoint');
-});
+router.post('/login', loginRoute);
 
 
 
@@ -17,5 +16,3 @@ res.send('this is log in endpoint');
 module.exports = router;
 
 
-// https://www.youtube.com/watch?v=oJBu2k7OEk8&t=7392s
-// 23:00

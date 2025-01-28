@@ -9,15 +9,18 @@ const userSignUpSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  userName: {
+  email: {
     type: String,
     required: true,
-  },
+    unique: true,
+    match: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+},
   password: {
     type: String,
     required: true, 
+    minlenght: 8,
   },
-}, { versionKey: false });
+}, { timestamps: true, versionKey: false });
 
 const user = mongoose.model('user', userSignUpSchema);
 
