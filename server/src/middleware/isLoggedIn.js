@@ -1,5 +1,19 @@
-const express = require('express');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt.js');
-const user = require('../src/models/signUpModel');
-const router = express.Router();
+
+const isLoggedIn = (req, res, next) => {
+    const token = req.header('Authorization')?.replace("Bearer ", "");
+
+    if (!token) {
+        return res.status(401).send("Token not found");
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.SECRET);
+        req.user = decoded;
+        next();
+    } catch (error) {
+        return res.status(400).send('Invalid token');
+    }
+};
+
+module.exports = isLoggedIn;

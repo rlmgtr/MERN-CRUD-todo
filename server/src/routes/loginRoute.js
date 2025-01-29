@@ -22,8 +22,7 @@ const token = jwt.sign({userId: user._id}, process.env.SECRET, {
 });
 
 
-req.token = token;
-next();
+return res.json({ token });
 
     } catch (error) {
 console.error(error);
