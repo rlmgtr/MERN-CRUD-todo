@@ -9,10 +9,10 @@ const createTodoRoute = require('./routes/createTodoRoute');
 router.use('/signup', signUpRoute);
 
 
-router.post('/login', loginRoute);
+ router.post('/login', loginRoute);
 
 
-router.post('/todos', createTodoRoute);
+router.use('/todos', createTodoRoute);
 
 
 
