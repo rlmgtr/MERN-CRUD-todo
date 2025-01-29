@@ -2,15 +2,15 @@ const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
-const cors = require('cors')
-const router = require('./router')
+const cors = require('cors');
+const router = require('./router');
 
 dotenv.config();
 
 const app = express();
 
 mongoose.connect(process.env.MONGO_URI, {
-    useNewURLParser: true,
+    useNewUrlParser: true,  
     useUnifiedTopology: true,
     serverSelectionTimeoutMS: 4000,
 })
@@ -22,8 +22,6 @@ app.use(cors());
 app.use(morgan('tiny'));
 app.use(router);
 
-
-
 app.listen(8000, () => {
     console.log('Server is running on port 8000');
-  });
+});

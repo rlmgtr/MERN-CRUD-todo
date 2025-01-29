@@ -9,8 +9,6 @@ const { firstName, lastName, email, password } = req.body;
 
 const hashedPassword = await bcrypt.hash(password, 10);
 
-
-
 const newUser = new user({ firstName, lastName, email, password: hashedPassword });
 await newUser.save();
 res.status(201).send('Successfully Created User Account')

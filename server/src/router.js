@@ -12,6 +12,9 @@ router.use('/signup', signUpRoute);
 router.post('/login', loginRoute);
 
 
-router.get('/todos', isLoggedIn, createTodoRoute);
+router.post('/todos', createTodoRoute);
+
+
+
 
 module.exports = router;
