@@ -1,29 +1,32 @@
 const express = require('express');
 const router = express.Router();
-const Todo = require('../models/createTodoModel'); // Ensure this path is correct
+const Todo = require('../models/createTodoModel'); 
+const isLoggedIn = require('../middleware/isLoggedIn');
 
-// Route to create a new todo
-router.post('/', async (req, res) => {
-    try {
-        const { toDo, isDone, remarks } = req.body;
+router.post('/', isLoggedIn, async (req, res) => {
+try {
+const { toDo, isDone, remarks } = req.body;
 
-        // Validate input
-        if (!toDo) {
-            return res.status(400).send('toDo is required');
-        }
+if (!toDo) {
+    return res.status(400).json({message: 'toDo is required'});
+}
+    
 
-        // Create a new Todo instance
-        const newTodo = new Todo({ toDo, isDone, remarks });
+    const newTodo = new Todo({
+        userId: req.user._id, 
+        toDo,
+        isDone,
+        remarks
+    });
 
-        // Save the new Todo to the database
-        await newTodo.save();
+    await newTodo.save();
 
-        // Respond with success message
-        res.status(201).send('New Task added');
-    } catch (error) {
-        console.error('Error adding todo:', error); // Log detailed error
-        res.status(500).send('Server error: ' + error.message);
-    }
+    res.status(201).json({message: 'Successfully added a task'});
+
+} catch (error) {
+    console.error('Error in adding task', error);
+    res.status(500).json({message:"Server Error", error: error.message});
+}
 });
 
 module.exports = router;

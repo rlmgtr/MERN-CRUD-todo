@@ -5,14 +5,13 @@ const loginRoute = require('./routes/loginRoute');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const createTodoRoute = require('./routes/createTodoRoute');
 
-
 router.use('/signup', signUpRoute);
 
 
- router.post('/login', loginRoute);
+router.post('/login', loginRoute);
 
 
-router.use('/todos', createTodoRoute);
+router.use('/todos',isLoggedIn, createTodoRoute);
 
 
 
