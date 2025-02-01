@@ -1,33 +1,31 @@
-const express = require ('express');
+const express = require('express');
 const router = express.Router();
+const Todo = require('../models/createTodoModel');
 const isLoggedIn = require('../middleware/isLoggedIn');
-const Todo = require('../models/createTodoModel')
 
-router.patch('/:id', isLoggedIn, async (req, res) => {
+router.patch ('/:id', isLoggedIn, async (req, res) => {
+try { 
+    const { id } = req.params;
+    const { toDo, isDone, remarks } = req.body;
 
-    try {
-        const { id } = req.params;
-        const { toDo, isDone, remarks } = req.body;
+    const updateTodo = await Todo.findOneAndUpdate(
+{ _id: id, user: req.user.id },
+{ $set: { toDo, isDone, remarks } }, 
+{ new: true, runValidators: true }
+);
 
-const todo = await Todo.findOne({ _id: id, user: req.user.id });
-
-if (!todo) {
-    return res.status(400).json({ message: 'Task not found' });
+if (!updateTodo) {
+return res.status(400).json({ message: 'Task not found' });
 }
 
- if (toDo !== undefined) todo.toDo = toDo;
- if (isDone !== undefined) todo.isDone = isDone;
- if (remarks !== undefined) todo.remarks = remarks;
+res.status(200).json({ message: 'Task successfully updated', todo: updateTodo });
 
-await todo.save();
+} catch (error) {
 
-res.status(200).json({ message: 'Task successfully updated', todo });
+res.status(500).json({ message: 'Internal server error', error: error.message });
 
-}catch (error) {
-    res.status(500).json({ message: 'internal server error', error: error.error.message })
 }
 
 });
 
-
-module.exports = router
+module.exports = router;
