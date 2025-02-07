@@ -1,4 +1,5 @@
-
+import HomePage from "./Components/HomePage";
+import WeatherAndNews from "./Components/WeatherAndNews";
 
 function App() {
   
@@ -6,7 +7,8 @@ function App() {
   return (
     <>
       <div>
-        This is the start
+<WeatherAndNews />
+<HomePage/>
       </div>
       
 
