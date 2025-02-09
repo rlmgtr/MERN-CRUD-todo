@@ -1,27 +1,25 @@
 import LogIn from './LogIn';
 import SignUp from './SignUp';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
- 
-
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 
 const HomePage = () => {
   return (
- <Router>
-<div>
- <LogIn />
+    <Router>
+      <div>
+        <div className='nav'>
+          <NavLink to='/login'>Log in</NavLink>
+          <NavLink to='/signup'>Sign Up</NavLink>
+        </div>
 
-
-<div> 
-dont have an acount yet? click here to sign up
-</div>
-
- 
-
-
-      
-    </div>
+        <div className='entry'>
+          <Routes>
+            <Route path='/login' element={<LogIn />} />
+            <Route path='/signup' element={<SignUp />} />
+          </Routes>
+        </div>
+      </div>
     </Router>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
