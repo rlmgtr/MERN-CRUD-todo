@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const SignUp = () => {
+
+  const [SignUpData, setSignUpData] = useState({
+firsName: '',
+lastName: '',
+email: '',
+password: ''
+  });
+
+const [error, setError] = useState('');
+const [success, setSuccess] = useState('')
+
+
+
+
   return (
     <div>
       First Name <input type='text' name='firstName' placeholder='First Name'/>
