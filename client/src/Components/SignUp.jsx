@@ -46,8 +46,6 @@ setError(data.message || 'Registration failed. Please try again');
   setError('Server error - please try again later.')
 ;}
 
-
-}
 };
 
 
@@ -60,7 +58,7 @@ setError(data.message || 'Registration failed. Please try again');
 
       <button type='submit'>Sign Up!</button>
     </div>
-  )
+  )};
 
 
 export default SignUp

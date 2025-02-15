@@ -2,7 +2,7 @@ import LogIn from './LogIn';
 import SignUp from './SignUp';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 
-const HomePage = () => {
+const Entry = () => {
   return (
     <Router>
       <div>
@@ -22,4 +22,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Entry;

@@ -9,6 +9,8 @@ const LogIn = () => {
 
     password
     <input type='password' name='password' placeholder='PASSWORD' />
+
+    <button type='submit'>Log in</button>
       
     </div>
   )

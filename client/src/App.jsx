@@ -1,5 +1,6 @@
-import HomePage from "./Components/HomePage";
-import WeatherAndNews from "./Components/WeatherAndNews";
+import Entry from "./Components/Entry";
+import Weather from "./Components/Weather"; 
+import News from "./Components/News";
 
 function App() {
   
@@ -7,8 +8,9 @@ function App() {
   return (
     <>
       <div>
-<WeatherAndNews />
-<HomePage/>
+<Weather />
+<News />
+<Entry/>
       </div>
       
 
