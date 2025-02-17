@@ -31,7 +31,7 @@ const response = await fetch(`${API_URL}/signup`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'}, 
-body: JSON.stringify(formData)
+body: JSON.stringify(SignUpData)
   });
 
   const data = await response.json();
@@ -43,22 +43,28 @@ setError(data.message || 'Registration failed. Please try again');
   }
 
 }catch (err) {
-  setError('Server error - please try again later.')
-;}
-
+  setError('Server error - please try again later.');
+}
 };
 
 
   return (
     <div>
-      First Name <input type='text' name='firstName' placeholder='First Name'/>
-      Last Name <input type='text' name='lastName' placeholder='Last Name'/>
-      Email <input type='email' name='email' placeholder='Email'/>
-      Password <input type='password' name='password' placeholder='Password'/>
+      <form onSubmit={handleSubmit}>
+      First Name <input type='text' name='firstName' placeholder='First Name' value={SignUpData.firstName} onChange={handleChange}/>
+      Last Name <input type='text' name='lastName' placeholder='Last Name' value={SignUpData.lastName} onChange={handleChange}/>
+      Email <input type='email' name='email' placeholder='Email' value={SignUpData.email} onChange={handleChange}/>
+      Password <input type='password' name='password' placeholder='Password' value={SignUpData.password} onChange={handleChange}/>
 
-      <button type='submit'>Sign Up!</button>
+      <button type='submit'>Sign Up!</button> {}
+      </form>
+
+{error && <p style={{ color:'red' }}>{error}</p>}
+{success && <p style={{ color: 'green'}}>{success}</p>} 
+
     </div>
-  )};
+  );
+};
 
 
 export default SignUp
