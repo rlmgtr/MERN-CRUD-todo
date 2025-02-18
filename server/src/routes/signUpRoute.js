@@ -11,7 +11,7 @@ const hashedPassword = await bcrypt.hash(password, 10);
 
 const newUser = new User({ firstName, lastName, email, password: hashedPassword });
 await newUser.save();
-res.status(201).send('Successfully Created User Account')
+res.status(201).json({ message: 'Successfully Created User Account'});
     
 });
 
