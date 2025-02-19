@@ -1,6 +1,7 @@
 import LogIn from './LogIn';
 import SignUp from './SignUp';
-import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
+
+import { HashRouter  as Router, Routes, Route, NavLink } from 'react-router-dom';
 
 const Entry = () => {
   return (
@@ -13,8 +14,10 @@ const Entry = () => {
 
         <div className='entry'>
           <Routes>
+          <Route path='/Entry' element={<Entry />} />
             <Route path='/login' element={<LogIn />} />
             <Route path='/signup' element={<SignUp />} />
+            
           </Routes>
         </div>
       </div>
