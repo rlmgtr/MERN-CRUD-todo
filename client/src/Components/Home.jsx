@@ -1,11 +1,10 @@
-import Home from './Home'
 import LogIn from './LogIn';
 import SignUp from './SignUp';
 import TodoPage from './TodoPage';
 
 import { HashRouter  as Router, Routes, Route, NavLink } from 'react-router-dom';
 
-const Entry = () => {
+const Home = () => {
   return (
     <Router>
       <div>
@@ -14,7 +13,7 @@ const Entry = () => {
           <NavLink to='/signup'>Sign Up</NavLink>
         </div>
 
-        <div className='entry'>
+        <div className='content'>
           <Routes>
          
             <Route path='/login' element={<LogIn />} />
@@ -29,4 +28,4 @@ const Entry = () => {
   );
 };
 
-export default Entry;
+export default Home;
