@@ -8,9 +8,10 @@ function App() {
   return (
     <>
       <div>
-<div><Weather /></div>
-<div><News /></div>
-<div><Entry/></div>
+<div className="weatherdiv"><Weather /></div>
+<div className="newsdiv"><News /></div>
+<div className="enrtydiv"><Entry/></div>
+
       </div>
       
 

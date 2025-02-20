@@ -1,72 +1,75 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { API_URL } from '../APIs/TodoAPIs';
-
-
-
-
-
-
-
-
+import { useNavigate } from 'react-router-dom';
 
 const LogIn = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
-const [error, setError ] = useState('');
-const [loading, setLoading] = setLoading('false');
+  const navigate = useNavigate();
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
 
-const handleLogin = async (e) => {
-e.preventDefault();
-setError('');
-setLoading(true);
+    try {
+      const response = await fetch(`${API_URL}/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
 
-try {
+      const data = await response.json();
 
-  const response = await fetch (`${API_URL}/login`, {
-METHOD: 'POST',
-headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({email, password})
-});
+      if (!response.ok) {
+        throw new Error(data.message || 'Login Failed');
+      }
 
-const data = await response.json();
-
-if (!response.ok) {
-throw new Error(data.message || 'Login Failed' );
-}
-
-
-
-
-
-
-}
-
-}
-
-
-
-
-
-
-
-
-
+      localStorage.setItem('token', data.token);
+      navigate('/todos'); 
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
+      <form onSubmit={handleLogin}>
+        <label htmlFor="email">Username</label>
+        <input
+          type="text"
+          id="email"
+          name="username"
+          placeholder="USERNAME"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
-    username
-    <input type='text' name='username' placeholder='USERNAME' />
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="PASSWORD"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
 
-    password
-    <input type='password' name='password' placeholder='PASSWORD' />
+        {error && <p style={{ color: 'red' }}>{error}</p>}
 
-    <button type='submit'>Log in</button>
-      
+        <button type="submit" disabled={loading}>
+          {loading ? 'logging in...' : 'Log in'}
+        </button>
+      </form>
     </div>
-  )
-}
+  );
+};
 
-export default LogIn
+export default LogIn;
