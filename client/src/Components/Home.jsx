@@ -1,3 +1,4 @@
+import Home from './Home'
 import LogIn from './LogIn';
 import SignUp from './SignUp';
 import TodoPage from './TodoPage';
@@ -8,18 +9,16 @@ const Entry = () => {
   return (
     <Router>
       <div>
-        <div className='nav'>
+        <div className='nav' hidden>
           <NavLink to='/login'>Log in</NavLink>
           <NavLink to='/signup'>Sign Up</NavLink>
         </div>
 
         <div className='entry'>
           <Routes>
-          <Route path='/Entry' element={<Entry />} />
+         
             <Route path='/login' element={<LogIn />} />
             <Route path='/signup' element={<SignUp />} />
-
-            
             <Route path='/todos' element={<TodoPage />} />
             
 

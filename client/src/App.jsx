@@ -1,4 +1,4 @@
-import Entry from "./Components/Entry";
+import Home from "./Components/Home";
 import Weather from "./Components/Weather"; 
 import News from "./Components/News";
 
@@ -10,7 +10,7 @@ function App() {
       <div>
 <div className="weatherdiv"><Weather /></div>
 <div className="newsdiv"><News /></div>
-<div className="enrtydiv"><Entry/></div>
+<div className="enrtydiv"><Home/></div>
 
       </div>
       
