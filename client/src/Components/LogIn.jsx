@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { API_URL } from '../APIs/TodoAPIs';
 import { useNavigate } from 'react-router-dom';
 
-const LogIn = () => {
+const LogIn = ({ onLoginSuccess }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -29,6 +29,7 @@ const LogIn = () => {
       }
 
       localStorage.setItem('token', data.token);
+      onLoginSuccess();
       navigate('/todos'); 
     } catch (err) {
       setError(err.message);
@@ -40,12 +41,12 @@ const LogIn = () => {
   return (
     <div>
       <form onSubmit={handleLogin}>
-        <label htmlFor="email">Username</label>
+        <label htmlFor="email">Email</label>
         <input
           type="text"
           id="email"
-          name="username"
-          placeholder="USERNAME"
+          name="email"
+          placeholder="EMAIL"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
