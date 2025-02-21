@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Router>
       <div>
-        <div className='nav' hidden>
+        <div className='nav'>
           <NavLink to='/login'>Log in</NavLink>
           <NavLink to='/signup'>Sign Up</NavLink>
         </div>
