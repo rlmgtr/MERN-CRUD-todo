@@ -14,12 +14,17 @@ const isLoggedIn = (req, res, next) => {
         const decoded = jwt.verify(token, process.env.SECRET);
         console.log("Decoded Token:", decoded);  // Debug log to check the decoded token structure
 
-        // Attach user ID to the request object if decoded token has userId
+        // Attach userId and firstName to the request object
         if (!decoded.userId) {
             return res.status(400).json({ message: "Invalid token structure, userId missing" });
         }
 
-        req.user = { _id: decoded.userId }; // Attach userId to req.user for subsequent use in route handlers
+        // Change this part to use userId for consistency
+        req.user = { 
+            userId: decoded.userId,       // Changed from _id to userId
+            firstName: decoded.firstName  // Keep firstName as is
+        }; 
+        
         next();  // Proceed to the next middleware or route handler
     } catch (error) {
         console.error("JWT Error:", error);  // Log the error for debugging

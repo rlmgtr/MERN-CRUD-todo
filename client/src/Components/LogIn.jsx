@@ -28,7 +28,13 @@ const LogIn = ({ onLoginSuccess }) => {
         throw new Error(data.message || 'Login Failed');
       }
 
+      // Save token and userId to localStorage
       localStorage.setItem('token', data.token);
+
+      console.log('New Token:', data.token);
+      console.log('Stored Token:', localStorage.getItem('token'));
+
+      // Notify success and navigate
       onLoginSuccess();
       navigate('/todos'); 
     } catch (err) {
