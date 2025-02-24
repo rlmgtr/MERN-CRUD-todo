@@ -54,7 +54,7 @@ const readWeather = async () => {
 try { const response = await axios.get(`${wAPI_URL}?q=${city}&appid=${wAPI_KEY}`);
 
 const weatherData = response.data;
-setDay(new Day().toLocaleDateString('en-US', { weekday: 'long'}));
+setDay(new Date().toLocaleDateString('en-US', { weekday: 'long'}));
 setDate(new Date().toLocaleDateString());
 setIcon(`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`);
 setWeatherInfo(weatherData.weather[0].description);
@@ -67,7 +67,7 @@ setWeatherInfo(weatherData.weather[0].description);
   return (
     <div>
       <div className='Weather'> 
-<div>weather here  --- THIS IS TEST CHANGE</div>
+<div>weather here  --- THIS IS TEST CHANGE --- test change part 2</div>
 
 <input type='text' name='city' placeholder='Search City' value={city} onChange={(e) => setCity(e.target.value)}/>
 
