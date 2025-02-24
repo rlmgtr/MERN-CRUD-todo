@@ -189,7 +189,8 @@ const TodoPage = () => {
           {todos.length > 0 ? (
             todos.map(todo => (
               <li key={todo._id}>
-                <strong>{todo.toDo}</strong> - {todo.remarks} - {todo.isDone ? 'Done' : 'Not Done'}
+                <strong>{todo.toDo}</strong> - {todo.isDone ? 'Done' : 'Not Done'}
+                <li>{todo.remarks}</li>
                 
                 <input
                   type='checkbox'
