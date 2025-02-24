@@ -67,7 +67,7 @@ setWeatherInfo(weatherData.weather[0].description);
   return (
     <div>
       <div className='Weather'> 
-<div>weather here</div>
+<div>weather here  --- THIS IS TEST CHANGE</div>
 
 <input type='text' name='city' placeholder='Search City' value={city} onChange={(e) => setCity(e.target.value)}/>
 
