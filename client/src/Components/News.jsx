@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { nAPI_URL, nAPI_KEY } from '../APIs/NewsAPI';
 import axios from 'axios';
 
 const News = () => {
-  const [topic, setTopic] = useState('');
-  const [articles, setArticles] = useState([]); // Changed to an empty array
+  const [topic, setTopic] = useState('latest news'); // Default search term
+  const [articles, setArticles] = useState([]); 
 
   const getNews = async () => {
     try { 
       const response = await axios.get(`${nAPI_URL}?q=${topic}&apiKey=${nAPI_KEY}`);
       const newData = response.data.articles;
-      setArticles(newData); // Corrected setArticles
+      setArticles(newData);
     } catch (error) {
       console.error("Error fetching news:", error); 
     }  
@@ -20,6 +20,11 @@ const News = () => {
     e.preventDefault();
     getNews();
   };
+
+  // Fetch news on component load
+  useEffect(() => {
+    getNews();
+  }, []); // Empty dependency array to run only once on load
 
   return (
     <div>
@@ -47,15 +52,6 @@ const News = () => {
             </li>
           ))}
         </ul>
-      </div>
-
-      <div>
-        <ul>
-          <li>Title</li>
-          <li>Image</li>
-          <li>Overview</li>
-          <li>Source / Link</li>
-        </ul> 
       </div>
     </div>
   );
