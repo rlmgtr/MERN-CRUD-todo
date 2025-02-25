@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { wAPI_URL, wAPI_KEY } from '../APIs/WeatherAPI';
 import axios from 'axios';
+import '../Styles/weatherStyle.scss'
 
 const Weather = () => {
   const [city, setCity] = useState('');

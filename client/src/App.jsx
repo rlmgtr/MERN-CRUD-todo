@@ -1,7 +1,7 @@
 import Home from "./Components/Home";
 import Weather from "./Components/Weather"; 
 import News from "./Components/News";
-import './Styles/weatherAndNews.scss'
+import './Styles/appstyle.scss'
 
 
 
@@ -10,17 +10,17 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="crud">
 
  <div> 
-  <ul className="weatherAndNews">   
+<ul className="weatherAndNews">   
 <li><div className="weatherdiv"><Weather /></div></li>
 <li><div className="newsdiv"><News /></div></li>
 </ul>  
 </div> 
 
 
-<div className="enrtydiv"><Home/></div>
+<div className="tododiv"><Home/></div>
 
       </div>
       

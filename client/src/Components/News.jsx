@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { nAPI_URL, nAPI_KEY } from '../APIs/NewsAPI';
 import axios from 'axios';
+import '../Styles/newsStyle.scss'
 
 const News = () => {
   const [topic, setTopic] = useState('latest news'); // Default search term

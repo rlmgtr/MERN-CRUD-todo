@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../APIs/TodoAPIs';
 import { useNavigate } from 'react-router-dom';
+import '../Styles/todoStyle.scss'
 
 const TodoPage = () => {
   const [todos, setTodos] = useState([]);

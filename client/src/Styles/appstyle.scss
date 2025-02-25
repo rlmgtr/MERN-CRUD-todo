@@ -1,0 +1,53 @@
+ .crud {
+  display: flex;
+  flex-direction: row; 
+ }
+
+ ul {
+  list-style: none;
+ }
+ 
+ 
+ .weatherAndNews {
+display: flex;
+  flex-direction: column;  
+  width: 400px;
+  
+  
+    @media (min-width: 1200px) {
+     
+    }
+    
+    @media (min-width: 768px) and (max-width: 1199px) {
+      
+    }
+    
+    @media (max-width: 767px) {
+      
+    }
+  }
+
+
+  
+  .weatherdiv {
+    height: 350px;   // Adjust the height as needed
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+ 
+  } 
+  
+  
+  .newsdiv {
+    height: 400px;   // Adjust the height as needed
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+  
+
+  }
+
+  
+
+  
