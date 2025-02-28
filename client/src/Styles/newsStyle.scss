@@ -1,0 +1,39 @@
+.newsContainer {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  
+  /* Form remains fixed */
+  .newsForm {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    position: sticky; /* Keeps it at the top while scrolling */
+    top: 0;
+    z-index: 10;
+  }
+  
+  /* Scrollable news container */
+  .newsListContainer {
+    max-height: 400px; /* Set the height of the scrollable area */
+    overflow-y: auto; /* Makes the div scrollable */
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Individual news items */
+  .newsItem {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+  }
+  

@@ -96,22 +96,22 @@ const Weather = () => {
 
   return (
     <div>
-      <div className="Weather">
-        <h2>Weather App</h2>
+      <div className="weatherContent">
+       
         <p>Today's Weather in: <strong>{displayCity}</strong></p>
-
-        <input
+<ul>
+   <li>     <input
           type="text"
           name="city"
           placeholder="Search City"
           value={city}
           onChange={(e) => setCity(e.target.value)}
-        />
+        /></li>
 
-        <button onClick={readWeather}>Get Weather</button>
-        <button onClick={getLocation}>Get Current Location's Weather</button>
+<li>      <button onClick={readWeather}>Get Weather</button></li>
+<li>       <button onClick={getLocation}>Get Current Location's Weather</button></li>
 
-        <ul>
+        
           <li>{day}</li>
           <li>{date}</li>
           <li>{icon && <img src={icon} alt="Weather Icon" />}</li>

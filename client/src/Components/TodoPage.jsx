@@ -143,13 +143,7 @@ const TodoPage = () => {
     }
   }, [token, navigate]);
 
-  // Test with Mock Data (Uncomment this to check if UI renders correctly)
-  // useEffect(() => {
-  //   setTodos([
-  //     { _id: '1', toDo: 'Sample Task 1', remarks: 'Sample remark', isDone: false },
-  //     { _id: '2', toDo: 'Sample Task 2', remarks: 'Another remark', isDone: true }
-  //   ]);
-  // }, []);
+
 
   return (
     <div>

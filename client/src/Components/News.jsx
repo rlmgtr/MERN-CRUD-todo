@@ -28,33 +28,36 @@ const News = () => {
   }, []); // Empty dependency array to run only once on load
 
   return (
+    
+    
+    
+    
     <div>
-      <h1>News here</h1>
-
-      <form onSubmit={handleSearch}>
-        <input 
-          type='text' 
-          name='topic' 
-          placeholder='Search Topic' 
-          value={topic} 
-          onChange={(e) => setTopic(e.target.value)}
-        />
-        <button type='submit'>Search News</button>
-      </form>
-
-      <div>
-        <ul>
-          {articles.map((article, index) => (
-            <li key={index}>
-              <h3>{article.title}</h3>
-              <img src={article.urlToImage} alt={article.title} style={{ width: '100px' }} /> 
-              <p>{article.description}</p>
-              <a href={article.url} target='_blank' rel='noopener noreferrer'>Read more</a>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <form onSubmit={handleSearch} className="newsForm">
+      <input 
+        type='text' 
+        name='topic' 
+        placeholder='Search Topic' 
+        value={topic} 
+        onChange={(e) => setTopic(e.target.value)}
+      />
+      <button type='submit'>Search News</button>
+    </form>
+  
+    <div className="newsContainer">
+      <ul>
+        {articles.map((article, index) => (
+          <li key={index} className="newsItem">
+            <h3>{article.title}</h3>
+            <img src={article.urlToImage} alt={article.title} style={{ width: '100px' }} />
+            <p>{article.description}</p>
+            <a href={article.url} target='_blank' rel='noopener noreferrer'>Read more</a>
+          </li>
+        ))}
+      </ul>
     </div>
+  </div>
+   
   );
 }
 

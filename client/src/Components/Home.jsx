@@ -25,14 +25,30 @@ setIsLoggedIn(!!token);
   
     <Router>
       <div>
+
+
+
+
         <div className='nav'>
-          {!isLoggedIn && <NavLink to='/login'>Log in</NavLink> }
-          {!isLoggedIn && <NavLink to='/signup'>Sign Up</NavLink> }
-          {isLoggedIn && <button onClick={handleLogout}>Log Out</button> }
+          <ul> 
+            <h2>
+  Have Plans? do it with ToDo Web App
+</h2>
+         
+         <li>  {!isLoggedIn && <NavLink to='/signup'>Sign Up</NavLink> } 
+         </li>
+         <li>
+          <h3>Already have an account?</h3>
+           {!isLoggedIn && <NavLink to='/login'>Log in</NavLink> } </li>
+         </ul>
+         {isLoggedIn && <button onClick={handleLogout}>Log Out</button> } 
         </div>
 
         <div className='content'>
           <Routes>
+
+          <Route path='/' 
+            element={isLoggedIn ? <Navigate to='/' /> : <SignUp/> } />
          
             <Route path='/login' 
             element={isLoggedIn ? <Navigate to ='/todos' /> : <LogIn onLoginSuccess= {handleLogInSuccess}/> } />
