@@ -11,3 +11,5 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-relative-links
+exclude:
+  - node_modules
