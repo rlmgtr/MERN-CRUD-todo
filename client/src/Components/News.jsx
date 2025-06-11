@@ -4,18 +4,19 @@ import axios from 'axios';
 import '../Styles/newsStyle.scss'
 
 const News = () => {
-  const [topic, setTopic] = useState('latest news'); // Default search term
+  const [topic, setTopic] = useState('technology'); // Default search term
   const [articles, setArticles] = useState([]); 
 
   const getNews = async () => {
-    try { 
-      const response = await axios.get(`${nAPI_URL}?q=${topic}&apiKey=${nAPI_KEY}`);
-      const newData = response.data.articles;
-      setArticles(newData);
-    } catch (error) {
-      console.error("Error fetching news:", error); 
-    }  
-  };
+  try { 
+    const response = await axios.get(`${nAPI_URL}?q=${topic}&apiKey=${nAPI_KEY}`);
+    console.log(response.data); // 👈 Move it here
+    const newData = response.data.articles;
+    setArticles(newData);
+  } catch (error) {
+    console.error("Error fetching news:", error.response?.data || error.message); 
+  }  
+};
 
   const handleSearch = (e) => {
     e.preventDefault();
