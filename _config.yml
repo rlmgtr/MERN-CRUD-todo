@@ -13,3 +13,5 @@ plugins:
   - jekyll-relative-links
 exclude:
   - node_modules
+  - client
+  - server
